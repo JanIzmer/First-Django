@@ -211,6 +211,13 @@ ul li:hover {
        color:#fff;
         height:40px;
 }
+.divider:after,
+.divider:before {
+content: "";
+flex: 1;
+height: 1px;
+background: #eee;
+}
     
 
   

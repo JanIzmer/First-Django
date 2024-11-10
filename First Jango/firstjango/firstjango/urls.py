@@ -8,7 +8,7 @@ urlpatterns = [
     path('', include('main.urls')),
     path('news/', include('news.urls')),
     path('contact/', include('contact.urls')),
-    path('accounts', include('django.cotrlib.auth.urls'))
+    path('accounts/', include('django.contrib.auth.urls'))
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns+= static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
