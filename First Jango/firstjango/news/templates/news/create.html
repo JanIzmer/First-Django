@@ -1,0 +1,17 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+{% block title %}
+    Creating new article
+{% endblock %}
+{% block content %}
+    <div class="new_article">
+        <h2>Adding new article</h2>
+        <form method="post">
+            {% csrf_token %} <br>
+            {{ form.title }} <br>
+            {{ form.anons }} <br>
+            {{ form.full_text }} <br>           
+            <button type="submit" class="btn btn-secondary">add article</button>
+        </form>
+    </div>
+{% endblock %}
