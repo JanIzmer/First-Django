@@ -37,7 +37,10 @@
                     <div class="buttons">
                         
                         <button class="btn btn-outline-primary px-4">Message</button>
-                        <button class="btn btn-primary px-4 ms-3">Contact</button>
+                        <form action="{% url 'logout' %}?next=/profile" method="post" style="display:inline;">
+                            {% csrf_token %}
+                            <button type="submit" class="btn btn-primary px-4 ms-3">Logout</button>
+                        </form>
                     </div>
                     
                     

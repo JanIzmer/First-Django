@@ -135,3 +135,4 @@ STATICFILES_DIRS = [
 MEDIA_URL = "/media/"
 
 LOGIN_REDIRECT_URL = reverse_lazy("main:profile")
+LOGOUT_REDIRECT_URL = '/'
