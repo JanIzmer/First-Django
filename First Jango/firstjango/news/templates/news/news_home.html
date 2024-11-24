@@ -26,6 +26,7 @@
                     <p>{{ i.full_text | slice:"0:320" }}... <a href="{% url 'news-detail' i.id %}">Czytac dalej</a></p>
                 {% endif %}
                 {% endautoescape %}
+                    <p>{{i.author.username}}</p>
             </div>
         </div>
         {% endfor %}
