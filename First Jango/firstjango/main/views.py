@@ -12,6 +12,7 @@ def about (request):
 @login_required
 def profile_view(request):
     return render(request, 'main/profile.html')
+@login_required
 def user_profile(request, user_id):
     user = get_object_or_404(User, id=user_id)
     return render(request, 'main/profile.html', {'user': user})
