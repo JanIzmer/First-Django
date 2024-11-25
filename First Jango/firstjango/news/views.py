@@ -27,7 +27,9 @@ def create(request):
     if request.method == 'POST':
         form = ArticlesForm(request.POST)
         if form.is_valid():
-            form.save()
+            my_object = form.save(commit=False)
+            my_object.author = request.user  # Set author to the logged-in user
+            my_object.save()
             return redirect('/news')
         else:
             error = 'Form is not valid'

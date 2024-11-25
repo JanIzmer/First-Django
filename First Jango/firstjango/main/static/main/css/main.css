@@ -97,7 +97,7 @@ ul li:hover {
     width: auto;
 }
 .row1 {
-    height: 60%;
+    height: 50%;
     display: flex;
     flex: 1;
 }
@@ -121,7 +121,7 @@ ul li:hover {
     display: flex;
     align-items: start;
     justify-content: start;
-    overflow: hidden;
+    overflow: auto;
 }
 #news_on_page{
     margin-left: 15%;

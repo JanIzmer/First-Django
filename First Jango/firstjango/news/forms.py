@@ -22,8 +22,17 @@ class ArticlesForm(ModelForm):
               "full_text": Textarea(attrs={
                   'class': 'form-control',
                   'placeholder': 'Article text'
-              })   
+              })
+                 
         }
+        def save(self, commit=True):
+        # Set the author field to the logged-in user
+            instance = super().save(commit=False)
+            if self.instance.pk is None:  # If creating a new instance
+                instance.author = self.user  # Set the author to the user passed into the form
+            if commit:
+                instance.save()
+            return instance
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)
     

@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import FormView
 from django.contrib.auth.models import User
@@ -12,6 +12,9 @@ def about (request):
 @login_required
 def profile_view(request):
     return render(request, 'main/profile.html')
+def user_profile(request, user_id):
+    user = get_object_or_404(User, id=user_id)
+    return render(request, 'main/profile.html', {'user': user})
 class RegisterView(FormView):
     form_class = RegisterForm
     template_name = 'registration/register.html'

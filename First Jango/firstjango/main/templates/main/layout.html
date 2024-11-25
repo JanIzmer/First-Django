@@ -32,6 +32,11 @@
                     {% endif %}
                     {% if not user.is_authenticated %}
                     <a href="{% url 'profile' %}"><li><i class="bi bi-box-arrow-in-right"></i> Login </li></a>
+                    {% else %}
+                    <form action="{% url 'logout' %}?next=/profile" method="post" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="btn btn-secondary px-4">Logout</button>
+                    </form>
                     {% endif %}
 
                 </ul>
