@@ -1,0 +1,47 @@
+{% extends 'main/layout.html'%}
+{% load static %}
+{% block title %}
+    News on page
+{% endblock %}
+{% block content %}
+
+    <div class="info">
+        <h1 id="news_on_page">News on page</h1>
+        {% if news %}
+        {% for i in news %}
+        {%if i.author.username == user.username %}
+        <div class="container-news">
+            <div class="row1">
+                <div class="col1">
+                    <img src="{{i.image.url}}" alt="image" class="news_logo">
+                </div>
+                <div class="col2">
+                    <strong>{{ i.title }}</strong>
+                </div>
+            </div>
+            <div class="row2">
+                {% autoescape on %}
+                {% if i.full_text|length <= 320 %}
+                    <p>{{ i.full_text }}...<a href="{% url 'news-detail' i.id %}">Czytac dalej</a></p>
+                {% else %}
+                    <p>{{ i.full_text | slice:"0:320" }}... <a href="{% url 'news-detail' i.id %}">Czytac dalej</a><br></p>
+                {% endif %}
+                {% endautoescape %}
+                    
+            </div>
+            <div class="row3">
+                <div class="col1">
+                    <p><a href="{% url 'wiew-update' i.id %}"> Update </a> &nbsp</p>
+                    <p><a href="{% url 'wiew-delete' i.id %}"> Delete </a></p>
+                </div>
+            </div>
+            
+        </div>
+        {% endif %}
+        {% endfor %}
+        {% else %}
+            <p>We dont have news</p>
+        {% endif %}
+    </div>
+  
+{% endblock %}

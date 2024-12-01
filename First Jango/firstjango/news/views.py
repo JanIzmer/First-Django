@@ -58,6 +58,10 @@ def news_home(request):
     news = Articles.objects.order_by('dete')
     return render(request, 'news/news_home.html', {'news': news})
 
+def user_articles(request):
+    news = Articles.objects.order_by('dete')
+    return render(request, 'news/user_articles.html', {'news': news})
+
 @login_required
 def create(request):
     error=''
